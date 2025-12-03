@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+dfi-backend/node_modules/
+twitch-chatbot/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+
+# DFE
+DareFightingICE/
+
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+session_stats.json
