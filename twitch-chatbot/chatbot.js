@@ -58,7 +58,7 @@ client.on('message', (channel, tags, message, self) => {
 
     const username = tags['display-name'] || tags['username'];
     const userId = tags['user-id'];
-    const command = message.trim().toLowerCase();
+    const command = message.trim().split(' ')[0].toLowerCase();
 
     // Check if it's a valid command
     if (COMMANDS[command]) {
