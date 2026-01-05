@@ -2,14 +2,14 @@ const tmi = require('tmi.js');
 const axios = require('axios');
 
 // ===== CONFIGURATION =====
-const TWITCH_CHANNEL = 'twitch_username';  // CHANGE THIS!
+const TWITCH_CHANNEL = 'your_twitch_username';  // CHANGE THIS!
 const BACKEND_URL = 'http://localhost:3000/command';
 const COOLDOWN_SECONDS = 10;
 
 // Command mapping: what viewers type → what game receives
 const COMMANDS = {
-    '!spawn': 'spawn',
-    '!autospawn': 'autospawn',
+    '!spawn': 'spawn physical',
+    '!autospawn': 'autospawn physical',
     '!stopspawn': 'stopspawn',
     '!p1hit': 'p1 hp -100',
     '!p2hit': 'p2 hp -100',
@@ -75,7 +75,8 @@ client.on('message', (channel, tags, message, self) => {
         
         // Send to backend
         axios.post(BACKEND_URL, {
-            command: gameCommand
+            command: gameCommand,
+            user: username
         })
         .then(() => {
             console.log(`   Queued successfully`);

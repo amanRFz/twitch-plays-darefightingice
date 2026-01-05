@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stream Overlay</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117; /* Dark BG */
+            color: white;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* CARD STYLES */
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* RECENT ACTIVITY FEED */
+        #feed-box {
+            width: 300px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 { margin-top: 0; color: #58a6ff; font-size: 1.2rem; border-bottom: 1px solid #30363d; padding-bottom: 10px;}
+
+        #feed-list {
+            flex-grow: 1;
+            overflow-y: hidden; /* Hide scrollbar */
+            display: flex;
+            flex-direction: column-reverse; /* Newest at bottom */
+            gap: 8px;
+        }
+
+        .feed-item {
+            background: #21262d;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #238636; /* Green accent */
+            animation: slideIn 0.3s ease-out;
+            font-size: 0.9rem;
+        }
+
+        .feed-item span.user { font-weight: bold; color: #f0f6fc; }
+        .feed-item span.cmd { color: #8b949e; font-family: monospace; }
+
+        /* STATS BOX */
+        #stats-box {
+            width: 200px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #238636;
+        }
+        .stat-label { color: #8b949e; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- FEED -->
+        <div id="feed-box" class="card">
+            <h2>Live Activity</h2>
+            <div id="feed-list">
+                <!-- Items will be injected here -->
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div id="stats-box" class="card">
+            <h2>Total Commands</h2>
+            <div id="total-count" class="stat-number">0</div>
+            <div class="stat-label">Actions Executed</div>
+            
+            <div style="margin-top: 20px; border-top: 1px solid #30363d; padding-top:20px;">
+                <div class="stat-label">Last Action</div>
+                <div id="last-action" style="font-weight:bold; color:#58a6ff;">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOCKET.IO CLIENT -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const feedList = document.getElementById('feed-list');
+        const totalCount = document.getElementById('total-count');
+        const lastAction = document.getElementById('last-action');
+
+        socket.on('new_event', (data) => {
+            console.log("Event received:", data);
+
+            // 1. Update Stats
+            totalCount.innerText = data.stats.totalCommands;
+            lastAction.innerText = data.command;
+
+            // 2. Add to Feed
+            const item = document.createElement('div');
+            item.className = 'feed-item';
+            item.innerHTML = `<span class="user">${data.user}</span> used <span class="cmd">${data.command}</span>`;
+            
+            feedList.prepend(item); // Add to top
+
+            // Keep list clean (remove old items)
+            if (feedList.children.length > 8) {
+                feedList.lastElementChild.remove();
+            }
+        });
+    </script>
+</body>
+</html>
