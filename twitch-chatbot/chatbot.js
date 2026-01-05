@@ -8,11 +8,14 @@ const COOLDOWN_SECONDS = 10;
 
 // Command mapping: what viewers type → what game receives
 const COMMANDS = {
-    '!spawn': 'spawn physical',
-    '!autospawn': 'autospawn physical',
+    '!heal': 'sphp+ phy',
+    '!damage': 'sphp- phy',
+    '!energy': 'spen+ phy',
+    '!drain': 'spen- phy',
+    '!autospawn': 'autospawn phy',
     '!stopspawn': 'stopspawn',
-    '!p1hit': 'p1 hp -100',
-    '!p2hit': 'p2 hp -100',
+    '!p1hit': 'p1 hp -50',
+    '!p2hit': 'p2 hp -50',
     '!p1boost': 'p1 energy 100',
     '!p2boost': 'p2 energy 100'
 };
