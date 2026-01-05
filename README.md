@@ -6,7 +6,7 @@ Twitch viewers control a fighting game through chat commands in real-time.
 
 - Node.js (v14+)
 - Python (v3.7+)
-- Java (v8+)
+- Java (25+)
 - Twitch account
 
 ## Installation
@@ -17,7 +17,7 @@ Before running, install:
 
 1. **Node.js** 
 2. **Python 3**
-3. **Java** 
+3. **Java 25+** 
 
 ### Step 1: Clone the Repository
 
@@ -93,14 +93,24 @@ http://localhost:3000
 
 ## Commands
 
+### Item Spawning
+
 | Command | Effect |
 | :-- | :-- |
-| `!spawn` | Spawn bouncing heal item (+10 HP) |
-| `!autospawn` | Auto-spawn every 5s |
-| `!stopspawn` | Stop auto-spawn |
-| `!p1hit` | Damage Player 1 (-100 HP) |
-| `!p2hit` | Damage Player 2 (-100 HP) |
-| `!p1boost` | Energy boost P1 (+100) |
-| `!p2boost` | Energy boost P2 (+100) |
+| `!heal` | Spawn HP recovery item (+80 HP) |
+| `!damage` | Spawn damage item (-60 HP) |
+| `!energy` | Spawn energy boost item (+75) |
+| `!drain` | Spawn energy drain item (-50) |
+| `!autospawn` | Auto-spawn random items every 3s |
+| `!stopspawn` | Stop auto-spawning |
+
+### Direct Player Actions
+
+| Command | Effect |
+| :-- | :-- |
+| `!p1hit` | Damage Player 1 (-50 HP) |
+| `!p2hit` | Damage Player 2 (-50 HP) |
+| `!p1boost` | Boost Player 1 energy (+100) |
+| `!p2boost` | Boost Player 2 energy (+100) |
 
 *Cooldown: 10 seconds per user*
