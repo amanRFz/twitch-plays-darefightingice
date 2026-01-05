@@ -1,4 +1,4 @@
-# Battlefield Intervention - Twitch Interactive Game
+# Battlefield Intervention - Twitch Interactive Fighting Game using DarefightingICE
 
 Twitch viewers control a fighting game through chat commands in real-time.
 
