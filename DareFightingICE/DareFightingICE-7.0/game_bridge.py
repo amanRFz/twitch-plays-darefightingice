@@ -10,7 +10,6 @@ def start_game_with_bridge():
     print("Backend URL:", BACKEND_URL)
     print("-" * 50)
     
-    # Exact same command as your .bat file
     game_process = subprocess.Popen(
         [
             "java",
@@ -18,7 +17,6 @@ def start_game_with_bridge():
             "FightingICE.jar;./lib/*;./lib/lwjgl/*;./lib/lwjgl/natives/windows/amd64/*;./lib/grpc/*;",
             "Main",
             "--limithp", "400", "400",
-            "--grey-bg"
         ],
         stdin=subprocess.PIPE,
         text=True,
