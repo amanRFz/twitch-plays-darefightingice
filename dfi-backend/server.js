@@ -21,9 +21,10 @@ let stats = {
 
 // Allowed commands list
 const ALLOWED_COMMANDS = [
-  "p1 hp -100", "p2 hp -100",
-  "p1 energy 100", "p2 energy 100",
-  "spawn", "autospawn", "stopspawn", "spawn physical", "autospawn physical"
+    "sphp+ phy", "sphp- phy", "spen+ phy", "spen- phy",
+    "autospawn phy", "stopspawn",
+    "p1 hp -50", "p2 hp -50",
+    "p1 energy 100", "p2 energy 100"
 ];
 
 // 1. Receive Command (Simulating Viewer/Twitch)
