@@ -57,10 +57,11 @@ Open `twitch-chatbot/chatbot.js` and change this line:
 ```javascript
 const TWITCH_CHANNEL = 'your_twitch_username';  // CHANGE THIS!
 ```
+### Step 6: Add data folder to dir
 
-Replace with your actual Twitch channel name.
+Copy `data` folder from `twitch-plays-darefightingice/DareFightingICE` to `twitch-plays-darefightingice/DareFightingICE/DareFightingICE-7.0`
 
-### Step 6: Run Everything (3 Terminals)
+### Step 7: Run Everything (3 Terminals)
 
 **Terminal 1 - Backend:**
 
