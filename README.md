@@ -32,6 +32,7 @@ cd twitch-plays-darefightingice
 ```bash
 cd dfi-backend
 npm install
+cd ..
 ```
 
 
@@ -40,6 +41,7 @@ npm install
 ```bash
 cd twitch-chatbot
 npm install
+cd ..
 ```
 
 
@@ -59,7 +61,7 @@ const TWITCH_CHANNEL = 'your_twitch_username';  // CHANGE THIS!
 ```
 ### Step 6: Add data folder to dir
 
-Copy `data` folder from `twitch-plays-darefightingice/DareFightingICE` to `twitch-plays-darefightingice/DareFightingICE/DareFightingICE-7.0`
+Copy `data` folder from `twitch-plays-darefightingice/DareFightingICE` to `twitch-plays-darefightingice/DareFightingICE/DareFightingICE-7.0/`
 
 ### Step 7: Run Everything (3 Terminals)
 
@@ -85,7 +87,7 @@ python game_bridge.py
 ```
 
 **Browser - Overlay:**
-
+Open the following link on your browser
 ```
 http://localhost:3000
 ```
