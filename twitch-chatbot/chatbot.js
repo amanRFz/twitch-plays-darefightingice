@@ -2,7 +2,7 @@ const tmi = require('tmi.js');
 const axios = require('axios');
 
 // ===== CONFIGURATION =====
-const TWITCH_CHANNEL = 'f0cusfz';  // CHANGE THIS!
+const TWITCH_CHANNEL = 'your_twitch_username';  // CHANGE THIS!
 const BACKEND_URL = 'http://localhost:3000/command';
 const COOLDOWN_SECONDS = 10;
 
